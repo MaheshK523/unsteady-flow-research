@@ -16,3 +16,9 @@ spectra, deterministic noise, command-line workflows, and headless plots.
 
 ```bash
 python -m pip install -e .
+python -m unsteady_flow jet --config configs/jet.json
+python -m unsteady_flow shock --config configs/shock.json
+python -m unittest discover -s tests -v
+```
+
+Each temporal scenario writes:
