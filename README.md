@@ -22,3 +22,9 @@ python -m unittest discover -s tests -v
 ```
 
 Each temporal scenario writes:
+
+- `signal.csv` with coordinate and value units;
+- `fft.csv` with a normalized one-sided amplitude spectrum;
+- `welch.csv` with a window-energy-normalized power spectral density;
+- `summary.json` with sample rate, RMS, peaks, and dominant frequencies;
+- `analysis.png` with time- and frequency-domain views.
