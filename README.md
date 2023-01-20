@@ -28,3 +28,9 @@ Each temporal scenario writes:
 - `welch.csv` with a window-energy-normalized power spectral density;
 - `summary.json` with sample rate, RMS, peaks, and dominant frequencies;
 - `analysis.png` with time- and frequency-domain views.
+
+The shock scenario writes its spatial profile, estimated shock location, and plot.
+
+## Scenarios
+
+| Scenario | Model | Primary check |
