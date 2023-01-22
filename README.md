@@ -34,3 +34,9 @@ The shock scenario writes its spatial profile, estimated shock location, and plo
 ## Scenarios
 
 | Scenario | Model | Primary check |
+|---|---|---|
+| `turbulence` | seeded noisy tone | dominant-frequency recovery under noise |
+| `jet` | exponentially damped acoustic tone | damping and high-rate sampling |
+| `wind` | blade-passage tone + harmonic + broadband noise | tonal/harmonic separation |
+| `shock` | smooth spatial jump + oscillatory disturbance | gradient-based position recovery |
+
