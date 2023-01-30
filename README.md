@@ -40,3 +40,9 @@ The shock scenario writes its spatial profile, estimated shock location, and plo
 | `wind` | blade-passage tone + harmonic + broadband noise | tonal/harmonic separation |
 | `shock` | smooth spatial jump + oscillatory disturbance | gradient-based position recovery |
 
+Parameters may be supplied with a JSON configuration file. All generators validate
+sample counts, units, positive parameters, and the Nyquist limit.
+
+## Python API
+
+```python
