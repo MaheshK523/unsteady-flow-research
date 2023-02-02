@@ -52,3 +52,9 @@ from unsteady_flow.signals import damped_tone
 signal = damped_tone(frequency=5_000, damping_rate=500)
 print(summarize_temporal_signal(signal))
 ```
+
+## Repository map
+
+```text
+unsteady_flow/      supported generators, spectra, analysis, I/O, plots, and CLI
+tests/              tone, shock, sampling, and artifact regression tests
