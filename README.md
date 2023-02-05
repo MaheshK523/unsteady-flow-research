@@ -58,3 +58,9 @@ print(summarize_temporal_signal(signal))
 ```text
 unsteady_flow/      supported generators, spectra, analysis, I/O, plots, and CLI
 tests/              tone, shock, sampling, and artifact regression tests
+configs/            reproducible example parameters
+examples/           small Python API example
+docs/               normalization details and scientific scope
+*.py                compatibility entry points for the original demonstrations
+.github/workflows/  CI across tests and a CLI smoke run
+```
