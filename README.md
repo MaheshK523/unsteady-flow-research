@@ -64,3 +64,6 @@ docs/               normalization details and scientific scope
 *.py                compatibility entry points for the original demonstrations
 .github/workflows/  CI across tests and a CLI smoke run
 ```
+
+See [`docs/methodology.md`](docs/methodology.md) for normalization details and the
+boundary between these signal models and real CFD/aeroacoustic research.
