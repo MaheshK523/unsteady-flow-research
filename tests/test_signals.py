@@ -16,3 +16,9 @@ class SignalTests(unittest.TestCase):
         estimate = estimate_shock_position(signal)
         self.assertAlmostEqual(estimate["shock_position"], 0.37, delta=0.004)
 
+    def test_nonuniform_sampling_is_rejected_for_spectrum(self):
+        signal = Signal(np.array([0.0, 0.1, 0.21, 0.3]), np.ones(4), "time", "s", "value", "1")
+        with self.assertRaisesRegex(ValueError, "uniform"):
+            _ = signal.sample_spacing
+
+
