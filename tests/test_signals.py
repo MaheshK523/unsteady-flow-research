@@ -22,3 +22,5 @@ class SignalTests(unittest.TestCase):
             _ = signal.sample_spacing
 
 
+if __name__ == "__main__":
+    unittest.main()
