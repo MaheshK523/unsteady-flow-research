@@ -16,3 +16,5 @@ class SpectrumTests(unittest.TestCase):
         self.assertAlmostEqual(dominant, 64, delta=2)
 
 
+if __name__ == "__main__":
+    unittest.main()
