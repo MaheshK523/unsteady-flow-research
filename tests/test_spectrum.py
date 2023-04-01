@@ -10,3 +10,9 @@ class SpectrumTests(unittest.TestCase):
         dominant = one_sided_fft(signal).dominant_frequency(1)
         self.assertAlmostEqual(dominant, 1_250, delta=12)
 
+    def test_welch_recovers_blade_pass_frequency(self):
+        signal = wind_turbine_signal(duration=4, sample_rate=1_024, blade_pass_frequency=64, seed=2)
+        dominant = welch_psd(signal, segment_length=512).dominant_frequency(1)
+        self.assertAlmostEqual(dominant, 64, delta=2)
+
+
