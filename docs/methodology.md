@@ -16,3 +16,9 @@ The result is reported in value-unit squared per hertz.
 ## Synthetic scenarios
 
 - `turbulence`: a seeded noisy sinusoid for testing spectral recovery;
+- `jet`: an exponentially damped tone, not a compressible-flow simulation;
+- `wind`: a blade-passage tone, second harmonic, and seeded broadband noise;
+- `shock`: a smooth spatial step plus an oscillatory perturbation, not a shock-
+  capturing numerical method.
+
+These cases are useful for checking sampling, normalization, peak recovery, export,
