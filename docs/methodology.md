@@ -10,3 +10,9 @@ gain, and doubles positive-frequency amplitudes except DC and the Nyquist bin. A
 unit-amplitude bin-centered sine therefore recovers approximately unit amplitude.
 
 `welch_psd` divides each windowed periodogram by sample rate and window energy,
+doubles the appropriate positive-frequency bins, and averages overlapping segments.
+The result is reported in value-unit squared per hertz.
+
+## Synthetic scenarios
+
+- `turbulence`: a seeded noisy sinusoid for testing spectral recovery;
