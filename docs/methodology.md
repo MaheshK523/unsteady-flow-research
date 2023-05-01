@@ -22,3 +22,6 @@ The result is reported in value-unit squared per hertz.
   capturing numerical method.
 
 These cases are useful for checking sampling, normalization, peak recovery, export,
+and plotting. Real research claims require validated experimental or simulation data,
+uncertainty analysis, mesh/time-step convergence where relevant, and comparison with
+accepted references.
