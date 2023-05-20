@@ -28,3 +28,9 @@ class Signal:
     def sample_spacing(self) -> float:
         spacing = np.diff(self.coordinate)
         if not np.allclose(spacing, spacing[0], rtol=1e-6, atol=1e-12):
+            raise ValueError("spectral analysis requires uniform sample spacing")
+        return float(spacing[0])
+
+
+def turbulent_tone(
+    duration: float = 1.0,
