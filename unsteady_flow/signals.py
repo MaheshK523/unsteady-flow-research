@@ -22,3 +22,9 @@ class Signal:
         if not np.all(np.isfinite(self.coordinate)) or not np.all(np.isfinite(self.values)):
             raise ValueError("signal values must be finite")
         if np.any(np.diff(self.coordinate) <= 0):
+            raise ValueError("signal coordinate must be strictly increasing")
+
+    @property
+    def sample_spacing(self) -> float:
+        spacing = np.diff(self.coordinate)
+        if not np.allclose(spacing, spacing[0], rtol=1e-6, atol=1e-12):
