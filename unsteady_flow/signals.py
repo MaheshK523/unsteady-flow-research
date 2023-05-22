@@ -34,3 +34,9 @@ class Signal:
 
 def turbulent_tone(
     duration: float = 1.0,
+    sample_rate: float = 500.0,
+    frequency: float = 10.0,
+    noise_std: float = 0.5,
+    seed: int = 523,
+) -> Signal:
+    _validate_temporal(duration, sample_rate, frequency)
