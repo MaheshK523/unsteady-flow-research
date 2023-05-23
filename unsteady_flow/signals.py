@@ -40,3 +40,9 @@ def turbulent_tone(
     seed: int = 523,
 ) -> Signal:
     _validate_temporal(duration, sample_rate, frequency)
+    rng = np.random.default_rng(seed)
+    time = _time_axis(duration, sample_rate)
+    values = np.sin(2 * np.pi * frequency * time) + rng.normal(0, noise_std, len(time))
+    return Signal(time, values, "time", "s", "velocity fluctuation", "m/s")
+
+
