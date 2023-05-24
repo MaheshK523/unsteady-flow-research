@@ -46,3 +46,9 @@ def turbulent_tone(
     return Signal(time, values, "time", "s", "velocity fluctuation", "m/s")
 
 
+def damped_tone(
+    duration: float = 0.01,
+    sample_rate: float = 100_000.0,
+    frequency: float = 5_000.0,
+    damping_rate: float = 500.0,
+    amplitude: float = 1.0,
