@@ -52,3 +52,9 @@ def damped_tone(
     frequency: float = 5_000.0,
     damping_rate: float = 500.0,
     amplitude: float = 1.0,
+) -> Signal:
+    _validate_temporal(duration, sample_rate, frequency)
+    if damping_rate < 0 or amplitude <= 0:
+        raise ValueError("damping_rate must be non-negative and amplitude must be positive")
+    time = _time_axis(duration, sample_rate)
+    values = amplitude * np.sin(2 * np.pi * frequency * time) * np.exp(-damping_rate * time)
