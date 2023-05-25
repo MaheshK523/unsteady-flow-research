@@ -58,3 +58,9 @@ def damped_tone(
         raise ValueError("damping_rate must be non-negative and amplitude must be positive")
     time = _time_axis(duration, sample_rate)
     values = amplitude * np.sin(2 * np.pi * frequency * time) * np.exp(-damping_rate * time)
+    return Signal(time, values, "time", "s", "pressure fluctuation", "Pa")
+
+
+def wind_turbine_signal(
+    duration: float = 2.0,
+    sample_rate: float = 2_000.0,
