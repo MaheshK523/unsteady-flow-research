@@ -64,3 +64,9 @@ def damped_tone(
 def wind_turbine_signal(
     duration: float = 2.0,
     sample_rate: float = 2_000.0,
+    blade_pass_frequency: float = 50.0,
+    harmonic_ratio: float = 0.35,
+    turbulence_std: float = 0.2,
+    seed: int = 523,
+) -> Signal:
+    _validate_temporal(duration, sample_rate, blade_pass_frequency)
