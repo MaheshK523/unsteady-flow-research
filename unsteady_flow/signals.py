@@ -70,3 +70,9 @@ def wind_turbine_signal(
     seed: int = 523,
 ) -> Signal:
     _validate_temporal(duration, sample_rate, blade_pass_frequency)
+    rng = np.random.default_rng(seed)
+    time = _time_axis(duration, sample_rate)
+    periodic = np.sin(2 * np.pi * blade_pass_frequency * time)
+    harmonic = harmonic_ratio * np.sin(2 * np.pi * 2 * blade_pass_frequency * time + 0.3)
+    turbulence = rng.normal(0, turbulence_std, len(time))
+    return Signal(time, periodic + harmonic + turbulence, "time", "s", "pressure fluctuation", "Pa")
