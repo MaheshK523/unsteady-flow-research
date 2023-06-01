@@ -76,3 +76,9 @@ def wind_turbine_signal(
     harmonic = harmonic_ratio * np.sin(2 * np.pi * 2 * blade_pass_frequency * time + 0.3)
     turbulence = rng.normal(0, turbulence_std, len(time))
     return Signal(time, periodic + harmonic + turbulence, "time", "s", "pressure fluctuation", "Pa")
+
+
+def shock_interaction(
+    points: int = 512,
+    length: float = 1.0,
+    shock_position: float = 0.5,
