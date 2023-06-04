@@ -100,3 +100,9 @@ def _time_axis(duration: float, sample_rate: float) -> np.ndarray:
     points = int(round(duration * sample_rate))
     if points < 8:
         raise ValueError("duration and sample_rate must produce at least eight samples")
+    return np.arange(points, dtype=np.float64) / sample_rate
+
+
+def _validate_temporal(duration: float, sample_rate: float, frequency: float) -> None:
+    if duration <= 0 or sample_rate <= 0 or frequency <= 0:
+        raise ValueError("duration, sample_rate, and frequency must be positive")
