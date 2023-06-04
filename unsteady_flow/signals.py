@@ -88,3 +88,9 @@ def shock_interaction(
 ) -> Signal:
     if points < 32 or length <= 0 or not 0 < shock_position < length:
         raise ValueError("invalid spatial grid or shock position")
+    if wave_number <= 0 or shock_strength <= 0 or thickness <= 0:
+        raise ValueError("wave_number, shock_strength, and thickness must be positive")
+    position = np.linspace(0, length, points)
+    turbulence = 0.28 * np.sin(2 * np.pi * wave_number * position / length)
+    smooth_shock = 0.5 * shock_strength * (1 + np.tanh((position - shock_position) / thickness))
+    return Signal(position, turbulence + smooth_shock, "position", "m", "normalized velocity", "1")
