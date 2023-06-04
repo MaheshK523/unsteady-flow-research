@@ -82,3 +82,9 @@ def shock_interaction(
     points: int = 512,
     length: float = 1.0,
     shock_position: float = 0.5,
+    wave_number: float = 4.0,
+    shock_strength: float = 1.0,
+    thickness: float = 0.012,
+) -> Signal:
+    if points < 32 or length <= 0 or not 0 < shock_position < length:
+        raise ValueError("invalid spatial grid or shock position")
