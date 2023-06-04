@@ -94,3 +94,9 @@ def shock_interaction(
     turbulence = 0.28 * np.sin(2 * np.pi * wave_number * position / length)
     smooth_shock = 0.5 * shock_strength * (1 + np.tanh((position - shock_position) / thickness))
     return Signal(position, turbulence + smooth_shock, "position", "m", "normalized velocity", "1")
+
+
+def _time_axis(duration: float, sample_rate: float) -> np.ndarray:
+    points = int(round(duration * sample_rate))
+    if points < 8:
+        raise ValueError("duration and sample_rate must produce at least eight samples")
