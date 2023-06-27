@@ -16,3 +16,9 @@ def summarize_temporal_signal(signal: Signal, welch_segment: int | None = None) 
         "sample_rate_hz": 1.0 / signal.sample_spacing,
         "mean": float(np.mean(signal.values)),
         "rms": float(np.sqrt(np.mean(signal.values**2))),
+        "peak_absolute": float(np.max(np.abs(signal.values))),
+        "dominant_fft_hz": spectrum.dominant_frequency(minimum_frequency=1e-12),
+        "dominant_welch_hz": psd.dominant_frequency(minimum_frequency=1e-12),
+        "value_unit": signal.value_unit,
+    }
+
