@@ -22,3 +22,9 @@ def summarize_temporal_signal(signal: Signal, welch_segment: int | None = None) 
         "value_unit": signal.value_unit,
     }
 
+
+def estimate_shock_position(signal: Signal) -> dict[str, float]:
+    if signal.coordinate_name != "position":
+        raise ValueError("shock estimation requires a spatial signal")
+    gradient = np.gradient(signal.values, signal.coordinate)
+    index = int(np.argmax(np.abs(gradient)))
