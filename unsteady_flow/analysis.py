@@ -28,3 +28,7 @@ def estimate_shock_position(signal: Signal) -> dict[str, float]:
         raise ValueError("shock estimation requires a spatial signal")
     gradient = np.gradient(signal.values, signal.coordinate)
     index = int(np.argmax(np.abs(gradient)))
+    return {
+        "shock_position": float(signal.coordinate[index]),
+        "peak_gradient": float(gradient[index]),
+    }
