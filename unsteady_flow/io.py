@@ -22,3 +22,9 @@ def write_spectrum_csv(spectrum: Spectrum, path: str | Path) -> Path:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
     with target.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["frequency_hz", f"{spectrum.kind}_{spectrum.unit}"])
+        writer.writerows(zip(spectrum.frequency, spectrum.magnitude, strict=True))
+    return target
+
+
