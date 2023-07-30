@@ -28,3 +28,8 @@ def write_spectrum_csv(spectrum: Spectrum, path: str | Path) -> Path:
     return target
 
 
+def write_json(payload: dict, path: str | Path) -> Path:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return target
