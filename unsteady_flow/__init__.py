@@ -10,3 +10,8 @@ __all__ = [
     "one_sided_fft",
     "shock_interaction",
     "turbulent_tone",
+    "welch_psd",
+    "wind_turbine_signal",
+]
+
+__version__ = "1.0.0"
