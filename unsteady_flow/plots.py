@@ -10,3 +10,9 @@ import matplotlib.pyplot as plt
 from .signals import Signal
 from .spectrum import Spectrum
 
+
+def plot_signal_and_spectrum(signal: Signal, spectrum: Spectrum, path: str | Path) -> Path:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    figure, axes = plt.subplots(2, 1, figsize=(10, 7), constrained_layout=True)
+    axes[0].plot(signal.coordinate, signal.values, color="#1565c0", linewidth=1.1)
