@@ -22,3 +22,9 @@ def plot_signal_and_spectrum(signal: Signal, spectrum: Spectrum, path: str | Pat
     axes[1].plot(spectrum.frequency, spectrum.magnitude, color="#ef6c00", linewidth=1.1)
     axes[1].set_xlabel("frequency (Hz)")
     axes[1].set_ylabel(f"{spectrum.kind} ({spectrum.unit})")
+    axes[1].grid(alpha=0.25)
+    figure.savefig(target, dpi=160)
+    plt.close(figure)
+    return target
+
+
