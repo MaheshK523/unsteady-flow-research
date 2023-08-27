@@ -28,3 +28,9 @@ def plot_signal_and_spectrum(signal: Signal, spectrum: Spectrum, path: str | Pat
     return target
 
 
+def plot_spatial_signal(signal: Signal, path: str | Path) -> Path:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    figure, axis = plt.subplots(figsize=(10, 4), constrained_layout=True)
+    axis.plot(signal.coordinate, signal.values, color="#6a1b9a", linewidth=1.8)
+    axis.set_xlabel(f"{signal.coordinate_name} ({signal.coordinate_unit})")
