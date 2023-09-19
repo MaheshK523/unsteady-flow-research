@@ -22,3 +22,9 @@ class Spectrum:
         magnitude = self.magnitude[mask]
         return float(frequency[int(np.argmax(magnitude))])
 
+
+def one_sided_fft(signal: Signal, detrend: bool = True, window: str = "hann") -> Spectrum:
+    values = signal.values.astype(np.float64)
+    if detrend:
+        values = values - np.mean(values)
+    weights = _window(window, len(values))
