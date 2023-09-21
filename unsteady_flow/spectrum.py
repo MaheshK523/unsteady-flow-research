@@ -28,3 +28,9 @@ def one_sided_fft(signal: Signal, detrend: bool = True, window: str = "hann") ->
     if detrend:
         values = values - np.mean(values)
     weights = _window(window, len(values))
+    transformed = np.fft.rfft(values * weights)
+    frequencies = np.fft.rfftfreq(len(values), d=signal.sample_spacing)
+    coherent_gain = float(np.sum(weights))
+    magnitude = np.abs(transformed) * 2.0 / coherent_gain
+    magnitude[0] /= 2
+    if len(values) % 2 == 0:
