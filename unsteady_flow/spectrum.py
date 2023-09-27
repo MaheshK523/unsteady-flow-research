@@ -34,3 +34,9 @@ def one_sided_fft(signal: Signal, detrend: bool = True, window: str = "hann") ->
     magnitude = np.abs(transformed) * 2.0 / coherent_gain
     magnitude[0] /= 2
     if len(values) % 2 == 0:
+        magnitude[-1] /= 2
+    return Spectrum(frequencies, magnitude, "amplitude", signal.value_unit)
+
+
+def welch_psd(
+    signal: Signal,
