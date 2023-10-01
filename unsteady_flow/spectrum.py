@@ -40,3 +40,9 @@ def one_sided_fft(signal: Signal, detrend: bool = True, window: str = "hann") ->
 
 def welch_psd(
     signal: Signal,
+    segment_length: int = 256,
+    overlap: float = 0.5,
+    window: str = "hann",
+) -> Spectrum:
+    values = signal.values.astype(np.float64)
+    if not 16 <= segment_length <= len(values):
