@@ -46,3 +46,9 @@ def welch_psd(
 ) -> Spectrum:
     values = signal.values.astype(np.float64)
     if not 16 <= segment_length <= len(values):
+        raise ValueError("segment_length must be between 16 and the signal length")
+    if not 0 <= overlap < 1:
+        raise ValueError("overlap must be in [0, 1)")
+    hop = max(1, int(round(segment_length * (1 - overlap))))
+    weights = _window(window, segment_length)
+    sample_rate = 1.0 / signal.sample_spacing
