@@ -52,3 +52,9 @@ def welch_psd(
     hop = max(1, int(round(segment_length * (1 - overlap))))
     weights = _window(window, segment_length)
     sample_rate = 1.0 / signal.sample_spacing
+    normalization = sample_rate * float(np.sum(weights**2))
+    estimates = []
+    for start in range(0, len(values) - segment_length + 1, hop):
+        segment = values[start : start + segment_length]
+        segment = (segment - np.mean(segment)) * weights
+        power = np.abs(np.fft.rfft(segment)) ** 2 / normalization
