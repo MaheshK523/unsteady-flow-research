@@ -64,3 +64,9 @@ def welch_psd(
     if not estimates:
         raise ValueError("signal does not contain a complete Welch segment")
     frequencies = np.fft.rfftfreq(segment_length, d=signal.sample_spacing)
+    return Spectrum(frequencies, np.mean(estimates, axis=0), "power spectral density", f"{signal.value_unit}²/Hz")
+
+
+def _window(name: str, length: int) -> np.ndarray:
+    if name == "hann":
+        return np.hanning(length)
