@@ -58,3 +58,9 @@ def welch_psd(
         segment = values[start : start + segment_length]
         segment = (segment - np.mean(segment)) * weights
         power = np.abs(np.fft.rfft(segment)) ** 2 / normalization
+        if segment_length > 2:
+            power[1:-1] *= 2
+        estimates.append(power)
+    if not estimates:
+        raise ValueError("signal does not contain a complete Welch segment")
+    frequencies = np.fft.rfftfreq(segment_length, d=signal.sample_spacing)
