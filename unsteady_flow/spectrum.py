@@ -70,3 +70,6 @@ def welch_psd(
 def _window(name: str, length: int) -> np.ndarray:
     if name == "hann":
         return np.hanning(length)
+    if name == "rectangular":
+        return np.ones(length)
+    raise ValueError("window must be 'hann' or 'rectangular'")
