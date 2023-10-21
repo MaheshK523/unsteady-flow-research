@@ -10,3 +10,9 @@ from .plots import plot_signal_and_spectrum, plot_spatial_signal
 from .signals import damped_tone, shock_interaction, turbulent_tone, wind_turbine_signal
 from .spectrum import one_sided_fft, welch_psd
 
+
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="unsteady-flow", description="Reduced-order unsteady-flow signal experiments")
+    parser.add_argument("scenario", choices=["turbulence", "jet", "wind", "shock"])
+    parser.add_argument("--output", default="artifacts")
+    parser.add_argument("--config", help="JSON object of scenario parameters")
