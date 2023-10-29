@@ -16,3 +16,9 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("scenario", choices=["turbulence", "jet", "wind", "shock"])
     parser.add_argument("--output", default="artifacts")
     parser.add_argument("--config", help="JSON object of scenario parameters")
+    parser.add_argument("--seed", type=int, default=523)
+    parser.add_argument("--welch-segment", type=int, default=256)
+    return parser
+
+
+def run_scenario(
