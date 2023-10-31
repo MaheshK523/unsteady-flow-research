@@ -22,3 +22,9 @@ def _parser() -> argparse.ArgumentParser:
 
 
 def run_scenario(
+    scenario: str,
+    output: str | Path,
+    parameters: dict | None = None,
+    seed: int = 523,
+    welch_segment: int = 256,
+) -> dict:
