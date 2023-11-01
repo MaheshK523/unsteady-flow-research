@@ -28,3 +28,9 @@ def run_scenario(
     seed: int = 523,
     welch_segment: int = 256,
 ) -> dict:
+    params = dict(parameters or {})
+    target = Path(output) / scenario
+    if scenario == "turbulence":
+        params.setdefault("seed", seed)
+        signal = turbulent_tone(**params)
+    elif scenario == "jet":
