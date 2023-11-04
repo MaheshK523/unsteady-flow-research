@@ -34,3 +34,9 @@ def run_scenario(
         params.setdefault("seed", seed)
         signal = turbulent_tone(**params)
     elif scenario == "jet":
+        signal = damped_tone(**params)
+    elif scenario == "wind":
+        params.setdefault("seed", seed)
+        signal = wind_turbine_signal(**params)
+    elif scenario == "shock":
+        signal = shock_interaction(**params)
