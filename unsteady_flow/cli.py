@@ -40,3 +40,9 @@ def run_scenario(
         signal = wind_turbine_signal(**params)
     elif scenario == "shock":
         signal = shock_interaction(**params)
+        summary = estimate_shock_position(signal)
+        write_signal_csv(signal, target / "signal.csv")
+        write_json(summary, target / "summary.json")
+        plot_spatial_signal(signal, target / "signal.png")
+        return summary
+    else:
