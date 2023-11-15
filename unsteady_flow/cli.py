@@ -46,3 +46,9 @@ def run_scenario(
         plot_spatial_signal(signal, target / "signal.png")
         return summary
     else:
+        raise ValueError(f"unsupported scenario: {scenario}")
+
+    fft = one_sided_fft(signal)
+    segment = min(welch_segment, len(signal.values))
+    psd = welch_psd(signal, segment_length=segment)
+    summary = summarize_temporal_signal(signal, welch_segment=segment)
