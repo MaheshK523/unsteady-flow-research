@@ -52,3 +52,9 @@ def run_scenario(
     segment = min(welch_segment, len(signal.values))
     psd = welch_psd(signal, segment_length=segment)
     summary = summarize_temporal_signal(signal, welch_segment=segment)
+    write_signal_csv(signal, target / "signal.csv")
+    write_spectrum_csv(fft, target / "fft.csv")
+    write_spectrum_csv(psd, target / "welch.csv")
+    write_json(summary, target / "summary.json")
+    plot_signal_and_spectrum(signal, fft, target / "analysis.png")
+    return summary
