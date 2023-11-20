@@ -58,3 +58,9 @@ def run_scenario(
     write_json(summary, target / "summary.json")
     plot_signal_and_spectrum(signal, fft, target / "analysis.png")
     return summary
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = _parser().parse_args(argv)
+    parameters = json.loads(Path(args.config).read_text(encoding="utf-8")) if args.config else {}
+    summary = run_scenario(args.scenario, args.output, parameters, args.seed, args.welch_segment)
