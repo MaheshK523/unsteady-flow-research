@@ -64,3 +64,9 @@ def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     parameters = json.loads(Path(args.config).read_text(encoding="utf-8")) if args.config else {}
     summary = run_scenario(args.scenario, args.output, parameters, args.seed, args.welch_segment)
+    print(json.dumps(summary, indent=2, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
