@@ -1,0 +1,6 @@
+{
+  "amplitude": 1.0,
+  "damping_rate": 500.0,
+  "duration": 0.01,
+  "frequency": 5000.0,
+  "sample_rate": 100000.0
